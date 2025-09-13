@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard - Campus Events Hub</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fcampuseve3527back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-surface shadow-card border-b border-light sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="student_dashboard.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <span class="text-xl font-bold text-text-primary">Campus Events Hub</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="event_search.html" class="text-text-secondary hover:text-primary transition-colors duration-fast">
+                        Browse Events
+                    </a>
+                    <a href="my_events.html" class="text-text-secondary hover:text-primary transition-colors duration-fast">
+                        My Events
+                    </a>
+                    <div class="relative">
+                        <button id="user-menu-btn" class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-colors duration-fast">
+                            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium">John Doe</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- User Dropdown Menu -->
+                        <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-surface rounded-lg shadow-modal border border-light py-2">
+                            <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-primary-50 hover:text-primary transition-colors duration-fast">
+                                Profile Settings
+                            </a>
+                            <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-primary-50 hover:text-primary transition-colors duration-fast">
+                                Preferences
+                            </a>
+                            <div class="border-t border-light my-1"></div>
+                            <a href="login.html" class="block px-4 py-2 text-sm text-error hover:bg-error-50 transition-colors duration-fast">
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-text-secondary hover:text-primary p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="event_search.html" class="text-text-secondary hover:text-primary transition-colors duration-fast px-2 py-1">
+                        Browse Events
+                    </a>
+                    <a href="my_events.html" class="text-text-secondary hover:text-primary transition-colors duration-fast px-2 py-1">
+                        My Events
+                    </a>
+                    <div class="border-t border-light my-2"></div>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-fast px-2 py-1">
+                        Profile Settings
+                    </a>
+                    <a href="login.html" class="text-error hover:text-error-700 transition-colors duration-fast px-2 py-1">
+                        Sign Out
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-text-primary mb-2">Welcome back, John!</h1>
+                    <p class="text-text-secondary">Discover and register for exciting campus events</p>
+                </div>
+                <div class="mt-4 sm:mt-0 flex flex-col sm:flex-row gap-3">
+                    <a href="event_search.html" class="btn-primary flex items-center justify-center space-x-2 min-h-[44px]">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <span>Search Events</span>
+                    </a>
+                    <button class="btn-secondary flex items-center justify-center space-x-2 min-h-[44px]">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Calendar View</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Content Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Personalized Recommendations -->
+                <section class="card p-6 animate-fade-in">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-semibold text-text-primary">Recommended for You</h2>
+                                <p class="text-sm text-text-secondary">Based on your interests and activity</p>
+                            </div>
+                        </div>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium transition-colors duration-fast">
+                            View All
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Recommended Event 1 -->
+                        <div class="card p-4 hover:shadow-hover transition-all duration-fast">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-text-primary mb-1">Tech Innovation Summit</h3>
+                                    <p class="text-sm text-text-secondary mb-2">Computer Science Department</p>
+                                    <div class="flex items-center space-x-4 text-xs text-text-secondary">
+                                        <div class="flex items-center space-x-1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                            </svg>
+                                            <span>Sep 15, 2:00 PM</span>
+                                        </div>
+                                        <div class="flex items-center space-x-1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            <span>Tech Auditorium</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tech Summit" class="w-16 h-16 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="status-success">85% Match</span>
+                                    <span class="text-xs text-text-secondary">142/200 registered</span>
+                                </div>
+                                <button class="btn-primary text-sm px-4 py-2 min-h-[36px]" onclick="registerForEvent('tech-summit')">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Recommended Event 2 -->
+                        <div class="card p-4 hover:shadow-hover transition-all duration-fast">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-text-primary mb-1">AI Workshop Series</h3>
+                                    <p class="text-sm text-text-secondary mb-2">Machine Learning Club</p>
+                                    <div class="flex items-center space-x-4 text-xs text-text-secondary">
+                                        <div class="flex items-center space-x-1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                            </svg>
+                                            <span>Sep 18, 4:00 PM</span>
+                                        </div>
+                                        <div class="flex items-center space-x-1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            <span>Lab 301</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <img src="https://images.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_960_720.jpg" alt="AI Workshop" class="w-16 h-16 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="status-success">92% Match</span>
+                                    <span class="text-xs text-text-secondary">28/30 registered</span>
+                                </div>
+                                <button class="btn-primary text-sm px-4 py-2 min-h-[36px]" onclick="registerForEvent('ai-workshop')">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upcoming Events Feed -->
+                <section class="card p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-semibold text-text-primary">Upcoming Events</h2>
+                                <p class="text-sm text-text-secondary">Recently published events</p>
+                            </div>
+                        </div>
+                        <a href="event_search.html" class="text-primary hover:text-primary-700 text-sm font-medium transition-colors duration-fast">
+                            Browse All
+                        </a>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Event 1 -->
+                        <div class="card p-4 hover:shadow-hover transition-all duration-fast">
+                            <div class="flex items-start space-x-4">
+                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=400&q=80" alt="Music Concert" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex-1">
+                                            <h3 class="font-semibold text-text-primary mb-1">Campus Music Festival</h3>
+                                            <p class="text-sm text-text-secondary mb-2">Student Activities Board</p>
+                                            <div class="flex items-center space-x-4 text-xs text-text-secondary mb-3">
+                                                <div class="flex items-center space-x-1">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                                    </svg>
+                                                    <span>Sep 22, 6:00 PM</span>
+                                                </div>
+                                                <div class="flex items-center space-x-1">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                                    </svg>
+                                                    <span>Main Quad</span>
+                                                </div>
+                                                <div class="flex items-center space-x-1">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                                                    </svg>
+                                                    <span>387/500 registered</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="status-warning">Popular</span>
+                                                <span class="text-xs text-text-secondary">Free Event</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col space-y-2 ml-4">
+                                            <button class="btn-primary text-sm px-4 py-2 min-h-[36px]" onclick="registerForEvent('music-festival')">
+                                                Register
+                                            </button>
+                                            <a href="event_details.html" class="text-primary hover:text-primary-700 text-xs text-center transition-colors duration-fast">
+                                                View Details
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="card p-4 hover:shadow-hover transition-all duration-fast">
+                            <div class="flex items-start space-x-4">
+                                <img src="https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Career Fair" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex-1">
+                                            <h3 class="font-semibold text-text-primary mb-1">Fall Career Fair</h3>
+                                            <p class="text-sm text-text-secondary mb-2">Career Services</p>
+                                            <div class="flex items-center space-x-4 text-xs text-text-secondary mb-3">
+                                                <div class="flex items-center space-x-1">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                                    </svg>
+                                                    <span>Sep 25, 10:00 AM</span>
+                                                </div>
+                                                <div class="flex items-center space-x-1">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                                    </svg>
+                                                    <span>Student Center</span>
+                                                </div>
+                                                <div class="flex items-center space-x-1">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                                                    </svg>
+                                                    <span>156/300 registered</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="status-success">Professional</span>
+                                                <span class="text-xs text-text-secondary">Bring Resume</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col space-y-2 ml-4">
+                                            <button class="btn-primary text-sm px-4 py-2 min-h-[36px]" onclick="registerForEvent('career-fair')">
+                                                Register
+                                            </button>
+                                            <a href="event_details.html" class="text-primary hover:text-primary-700 text-xs text-center transition-colors duration-fast">
+                                                View Details
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar Column -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- My Registered Events -->
+                <section class="card p-6">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-secondary-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-text-primary">My Events</h3>
+                            <p class="text-sm text-text-secondary">3 upcoming events</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Registered Event 1 -->
+                        <div class="border border-light rounded-lg p-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex-1">
+                                    <h4 class="font-medium text-text-primary text-sm">Python Workshop</h4>
+                                    <p class="text-xs text-text-secondary">Tomorrow, 2:00 PM</p>
+                                </div>
+                                <button class="text-error hover:text-error-700 text-xs transition-colors duration-fast" onclick="cancelRegistration('python-workshop')">
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="status-success text-xs">Confirmed</span>
+                                <span class="text-xs text-text-secondary">Room 205</span>
+                            </div>
+                        </div>
+
+                        <!-- Registered Event 2 -->
+                        <div class="border border-light rounded-lg p-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex-1">
+                                    <h4 class="font-medium text-text-primary text-sm">Study Group</h4>
+                                    <p class="text-xs text-text-secondary">Sep 12, 7:00 PM</p>
+                                </div>
+                                <button class="text-error hover:text-error-700 text-xs transition-colors duration-fast" onclick="cancelRegistration('study-group')">
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="status-warning text-xs">Waitlist</span>
+                                <span class="text-xs text-text-secondary">Library</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <a href="my_events.html" class="btn-secondary w-full text-center min-h-[44px] flex items-center justify-center">
+                            View All My Events
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Quick Stats -->
+                <section class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Your Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Events Attended</span>
+                            <span class="font-semibold text-text-primary">12</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Upcoming Events</span>
+                            <span class="font-semibold text-text-primary">3</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Favorite Category</span>
+                            <span class="font-semibold text-text-primary">Technology</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Points Earned</span>
+                            <span class="font-semibold text-accent">245</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interest Tags -->
+                <section class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Your Interests</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary-100 text-primary text-xs rounded-full">Technology</span>
+                        <span class="px-3 py-1 bg-secondary-100 text-secondary text-xs rounded-full">AI/ML</span>
+                        <span class="px-3 py-1 bg-accent-100 text-accent text-xs rounded-full">Workshops</span>
+                        <span class="px-3 py-1 bg-success-100 text-success text-xs rounded-full">Networking</span>
+                        <span class="px-3 py-1 bg-primary-100 text-primary text-xs rounded-full">Programming</span>
+                    </div>
+                    <button class="text-primary hover:text-primary-700 text-sm mt-3 transition-colors duration-fast">
+                        Edit Interests
+                    </button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Registration Modal -->
+    <div id="registration-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="modal max-w-md w-full p-6 animate-slide-up">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-text-primary">Event Registration</h3>
+                <button id="close-modal" class="text-text-secondary hover:text-text-primary transition-colors duration-fast">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="modal-content">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Clash Detection Modal -->
+    <div id="clash-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="modal max-w-md w-full p-6 animate-slide-up">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="w-10 h-10 bg-warning-100 rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-text-primary">Schedule Conflict</h3>
+                    <p class="text-sm text-text-secondary">Time clash detected</p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <p class="text-text-secondary mb-4">This event conflicts with your existing registration:</p>
+                <div class="bg-warning-50 border border-warning-200 rounded-lg p-3">
+                    <p class="font-medium text-warning-800" id="conflict-event">Python Workshop</p>
+                    <p class="text-sm text-warning-700" id="conflict-time">Tomorrow, 2:00 PM - 4:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="flex space-x-3">
+                <button id="cancel-clash" class="btn-secondary flex-1 min-h-[44px]">
+                    Cancel Registration
+                </button>
+                <button id="proceed-clash" class="btn-primary flex-1 min-h-[44px]">
+                    Register Anyway
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-light mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+            <div class="text-center text-sm text-text-secondary">
+                <p>&copy; 2025 Campus Events Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // User menu toggle
+        const userMenuBtn = document.getElementById('user-menu-btn');
+        const userMenu = document.getElementById('user-menu');
+        
+        userMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userMenu.classList.toggle('hidden');
+        });
+
+        // Close user menu when clicking outside
+        document.addEventListener('click', () => {
+            userMenu.classList.add('hidden');
+        });
+
+        // Modal functionality
+        const registrationModal = document.getElementById('registration-modal');
+        const clashModal = document.getElementById('clash-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        closeModalBtn.addEventListener('click', () => {
+            registrationModal.classList.add('hidden');
+        });
+
+        // Close modals when clicking outside
+        [registrationModal, clashModal].forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+
+        // Event registration with clash detection
+        function registerForEvent(eventId) {
+            // Simulate clash detection
+            const hasClash = Math.random() > 0.7; // 30% chance of clash
+            
+            if (hasClash) {
+                showClashModal(eventId);
+            } else {
+                showRegistrationModal(eventId);
+            }
+        }
+
+        function showRegistrationModal(eventId) {
+            const eventNames = {
+                'tech-summit': 'Tech Innovation Summit',
+                'ai-workshop': 'AI Workshop Series',
+                'music-festival': 'Campus Music Festival',
+                'career-fair': 'Fall Career Fair'
+            };
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-text-primary mb-2">Registration Successful!</h4>
+                    <p class="text-text-secondary">You've been registered for <strong>${eventNames[eventId] || 'this event'}</strong></p>
+                </div>
+                <div class="flex space-x-3">
+                    <button onclick="closeRegistrationModal()" class="btn-secondary flex-1 min-h-[44px]">
+                        Close
+                    </button>
+                    <a href="my_events.html" class="btn-primary flex-1 min-h-[44px] flex items-center justify-center">
+                        View My Events
+                    </a>
+                </div>
+            `;
+            
+            registrationModal.classList.remove('hidden');
+        }
+
+        function showClashModal(eventId) {
+            clashModal.classList.remove('hidden');
+            
+            // Handle clash modal buttons
+            document.getElementById('cancel-clash').onclick = () => {
+                clashModal.classList.add('hidden');
+            };
+            
+            document.getElementById('proceed-clash').onclick = () => {
+                clashModal.classList.add('hidden');
+                showRegistrationModal(eventId);
+            };
+        }
+
+        function closeRegistrationModal() {
+            registrationModal.classList.add('hidden');
+        }
+
+        function cancelRegistration(eventId) {
+            if (confirm('Are you sure you want to cancel your registration for this event?')) {
+                // Simulate cancellation
+                alert('Registration cancelled successfully!');
+                // In a real app, this would update the UI and backend
+                location.reload();
+            }
+        }
+
+        // Simulate real-time updates
+        function updateRegistrationCounts() {
+            const counters = document.querySelectorAll('[data-registration-count]');
+            counters.forEach(counter => {
+                const current = parseInt(counter.textContent.split('/')[0]);
+                const max = parseInt(counter.textContent.split('/')[1]);
+                if (current < max && Math.random() > 0.8) {
+                    counter.textContent = `${current + 1}/${max} registered`;
+                }
+            });
+        }
+
+        // Update counts every 30 seconds
+        setInterval(updateRegistrationCounts, 30000);
+
+        // Check for user session
+        const user = localStorage.getItem('user');
+        if (!user) {
+            // Redirect to login if no session
+            window.location.href = 'login.html';
+        } else {
+            // Update user name in header
+            const userData = JSON.parse(user);
+            const userNameElement = document.querySelector('#user-menu-btn span');
+            if (userNameElement && userData.email) {
+                const name = userData.email.split('@')[0];
+                userNameElement.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+            }
+        }
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                registrationModal.classList.add('hidden');
+                clashModal.classList.add('hidden');
+                userMenu.classList.add('hidden');
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

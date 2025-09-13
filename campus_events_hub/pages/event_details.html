@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Details - Campus Events Hub</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fcampuseve3527back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-surface shadow-card border-b border-light">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <span class="text-xl font-bold text-text-primary">Campus Events Hub</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="student_dashboard.html" class="text-text-secondary hover:text-primary transition-colors duration-fast">
+                        Dashboard
+                    </a>
+                    <a href="event_search.html" class="text-text-secondary hover:text-primary transition-colors duration-fast">
+                        Browse Events
+                    </a>
+                    <a href="my_events.html" class="text-text-secondary hover:text-primary transition-colors duration-fast">
+                        My Events
+                    </a>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm text-text-secondary">John Doe</span>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-text-secondary hover:text-primary p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="student_dashboard.html" class="text-text-secondary hover:text-primary transition-colors duration-fast px-2 py-1">
+                        Dashboard
+                    </a>
+                    <a href="event_search.html" class="text-text-secondary hover:text-primary transition-colors duration-fast px-2 py-1">
+                        Browse Events
+                    </a>
+                    <a href="my_events.html" class="text-text-secondary hover:text-primary transition-colors duration-fast px-2 py-1">
+                        My Events
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center space-x-2 text-sm text-text-secondary mb-6" aria-label="Breadcrumb">
+            <a href="student_dashboard.html" class="hover:text-primary transition-colors duration-fast">Dashboard</a>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <a href="event_search.html" class="hover:text-primary transition-colors duration-fast">Events</a>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-text-primary">Event Details</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Event Details -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Event Header -->
+                <div class="card p-6 animate-fade-in">
+                    <!-- Event Image -->
+                    <div class="relative mb-6 overflow-hidden rounded-lg">
+                        <img src="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Annual Tech Conference 2025" class="w-full h-64 object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <!-- Popularity Badge -->
+                        <div class="absolute top-4 left-4">
+                            <div class="flex items-center space-x-1 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>Popular</span>
+                            </div>
+                        </div>
+                        <!-- Registration Status -->
+                        <div class="absolute top-4 right-4">
+                            <div id="registration-status" class="bg-success text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Available
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Title and Category -->
+                    <div class="mb-4">
+                        <div class="flex flex-wrap items-center gap-2 mb-3">
+                            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Technology</span>
+                            <span class="bg-secondary-100 text-secondary-800 px-3 py-1 rounded-full text-sm font-medium">Conference</span>
+                            <span class="bg-accent-100 text-accent-800 px-3 py-1 rounded-full text-sm font-medium">Networking</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-text-primary mb-2">Annual Tech Conference 2025</h1>
+                        <p class="text-text-secondary">Hosted by Computer Science Society</p>
+                    </div>
+
+                    <!-- Event Description -->
+                    <div class="prose max-w-none">
+                        <p class="text-text-secondary leading-relaxed mb-4">
+                            Join us for the most anticipated technology conference of the year! This comprehensive event brings together industry leaders, innovative startups, and passionate students to explore the latest trends in artificial intelligence, machine learning, blockchain, and emerging technologies.
+                        </p>
+                        <p class="text-text-secondary leading-relaxed mb-4">
+                            The conference features keynote presentations from renowned tech executives, interactive workshops on cutting-edge technologies, networking sessions with industry professionals, and a startup showcase highlighting the most promising new ventures in the tech space.
+                        </p>
+                        <p class="text-text-secondary leading-relaxed">
+                            Whether you're a computer science student, aspiring entrepreneur, or technology enthusiast, this event offers invaluable insights, networking opportunities, and hands-on learning experiences that will accelerate your career in the tech industry.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event Schedule -->
+                <div class="card p-6">
+                    <h2 class="text-xl font-semibold text-text-primary mb-4 flex items-center">
+                        <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Event Schedule
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 p-4 bg-primary-50 rounded-lg">
+                            <div class="flex-shrink-0 w-16 text-center">
+                                <div class="text-sm font-medium text-primary">9:00 AM</div>
+                                <div class="text-xs text-text-secondary">10:00 AM</div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Registration & Welcome Coffee</h3>
+                                <p class="text-sm text-text-secondary">Check-in and networking with fellow attendees</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 bg-secondary-50 rounded-lg">
+                            <div class="flex-shrink-0 w-16 text-center">
+                                <div class="text-sm font-medium text-secondary">10:00 AM</div>
+                                <div class="text-xs text-text-secondary">11:30 AM</div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Keynote: The Future of AI</h3>
+                                <p class="text-sm text-text-secondary">Dr. Sarah Chen, Chief AI Officer at TechCorp</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 bg-accent-50 rounded-lg">
+                            <div class="flex-shrink-0 w-16 text-center">
+                                <div class="text-sm font-medium text-accent">2:00 PM</div>
+                                <div class="text-xs text-text-secondary">4:00 PM</div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Interactive Workshops</h3>
+                                <p class="text-sm text-text-secondary">Hands-on sessions in ML, Blockchain, and Web3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Organizer Information -->
+                <div class="card p-6">
+                    <h2 class="text-xl font-semibold text-text-primary mb-4 flex items-center">
+                        <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        Organized By
+                    </h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-text-primary">Computer Science Society</h3>
+                            <p class="text-text-secondary">Official student organization for CS majors</p>
+                            <div class="flex items-center space-x-4 mt-2 text-sm text-text-secondary">
+                                <span class="flex items-center">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                    cs.society@campus.edu
+                                </span>
+                                <span class="flex items-center">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                    </svg>
+                                    450+ members
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                <!-- Event Information Card -->
+                <div class="card p-6 animate-slide-up">
+                    <h2 class="text-lg font-semibold text-text-primary mb-4">Event Information</h2>
+                    <div class="space-y-4">
+                        <!-- Date & Time -->
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <div>
+                                <div class="font-medium text-text-primary">Saturday, September 15, 2025</div>
+                                <div class="text-sm text-text-secondary">9:00 AM - 6:00 PM</div>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <div>
+                                <div class="font-medium text-text-primary">Student Union Auditorium</div>
+                                <div class="text-sm text-text-secondary">Building A, 3rd Floor</div>
+                                <a href="javascript:void(0)" class="text-sm text-primary hover:text-primary-700 transition-colors duration-fast">View on Map</a>
+                            </div>
+                        </div>
+
+                        <!-- Capacity -->
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            <div>
+                                <div class="font-medium text-text-primary">Registration</div>
+                                <div class="text-sm text-text-secondary">
+                                    <span id="current-registrations">187</span> / <span id="max-capacity">250</span> registered
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                    <div id="capacity-bar" class="bg-primary h-2 rounded-full transition-all duration-normal" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Registration Deadline -->
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-warning mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <div>
+                                <div class="font-medium text-text-primary">Registration Deadline</div>
+                                <div class="text-sm text-warning">September 13, 2025 at 11:59 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Actions -->
+                <div class="card p-6">
+                    <div id="registration-actions" class="space-y-4">
+                        <!-- Not Registered State -->
+                        <div id="not-registered" class="space-y-4">
+                            <button id="register-btn" class="btn-primary w-full flex items-center justify-center space-x-2 min-h-[44px]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                </svg>
+                                <span>Register for Event</span>
+                            </button>
+                            <p class="text-xs text-text-secondary text-center">
+                                Free registration • Confirmation required
+                            </p>
+                        </div>
+
+                        <!-- Registered State (Hidden by default) -->
+                        <div id="registered" class="space-y-4 hidden">
+                            <div class="bg-success-50 border border-success-200 rounded-lg p-4">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-success-800">You're registered!</span>
+                                </div>
+                            </div>
+                            <button id="cancel-registration-btn" class="w-full px-4 py-2 border border-error text-error hover:bg-error-50 rounded-lg transition-colors duration-fast">
+                                Cancel Registration
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Share Event -->
+                    <div class="mt-6 pt-6 border-t border-light">
+                        <h3 class="text-sm font-medium text-text-primary mb-3">Share Event</h3>
+                        <div class="flex space-x-2">
+                            <button class="flex-1 flex items-center justify-center space-x-1 px-3 py-2 bg-primary-50 text-primary rounded-lg hover:bg-primary-100 transition-colors duration-fast">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                </svg>
+                                <span class="text-sm">Twitter</span>
+                            </button>
+                            <button class="flex-1 flex items-center justify-center space-x-1 px-3 py-2 bg-secondary-50 text-secondary rounded-lg hover:bg-secondary-100 transition-colors duration-fast">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                                <span class="text-sm">Facebook</span>
+                            </button>
+                            <button class="flex-1 flex items-center justify-center space-x-1 px-3 py-2 bg-accent-50 text-accent rounded-lg hover:bg-accent-100 transition-colors duration-fast">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                                </svg>
+                                <span class="text-sm">Share</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Events -->
+                <div class="card p-6">
+                    <h2 class="text-lg font-semibold text-text-primary mb-4">Similar Events</h2>
+                    <div class="space-y-4">
+                        <a href="javascript:void(0)" class="block group">
+                            <div class="flex space-x-3">
+                                <img src="https://images.pixabay.com/photo/2016/02/19/11/19/computer-1209641_1280.jpg?auto=compress&cs=tinysrgb&w=400" alt="Web Development Workshop" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-medium text-text-primary group-hover:text-primary transition-colors duration-fast">Web Development Workshop</h3>
+                                    <p class="text-sm text-text-secondary">Sep 20, 2025 • 2:00 PM</p>
+                                    <p class="text-xs text-text-secondary">Computer Lab B</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0)" class="block group">
+                            <div class="flex space-x-3">
+                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=compress&cs=tinysrgb&w=400" alt="AI Ethics Seminar" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-medium text-text-primary group-hover:text-primary transition-colors duration-fast">AI Ethics Seminar</h3>
+                                    <p class="text-sm text-text-secondary">Sep 25, 2025 • 4:00 PM</p>
+                                    <p class="text-xs text-text-secondary">Philosophy Hall</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-light mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+            <div class="text-center text-sm text-text-secondary">
+                <p>&copy; 2025 Campus Events Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Clash Detection Modal -->
+    <div id="clash-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="modal max-w-md w-full p-6 animate-slide-up">
+            <div class="flex items-center mb-4">
+                <svg class="w-6 h-6 text-warning mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                </svg>
+                <h3 class="text-lg font-semibold text-text-primary">Schedule Conflict Detected</h3>
+            </div>
+            <div class="mb-6">
+                <p class="text-text-secondary mb-4">
+                    You have a scheduling conflict with another registered event:
+                </p>
+                <div class="bg-warning-50 border border-warning-200 rounded-lg p-4">
+                    <h4 class="font-medium text-warning-800">Data Structures Workshop</h4>
+                    <p class="text-sm text-warning-700">September 15, 2025 • 10:00 AM - 12:00 PM</p>
+                    <p class="text-sm text-warning-700">Computer Lab A</p>
+                </div>
+                <p class="text-sm text-text-secondary mt-4">
+                    Would you like to proceed with registration anyway?
+                </p>
+            </div>
+            <div class="flex space-x-3">
+                <button id="clash-cancel" class="flex-1 px-4 py-2 border border-gray-300 text-text-secondary rounded-lg hover:bg-gray-50 transition-colors duration-fast">
+                    Cancel
+                </button>
+                <button id="clash-proceed" class="flex-1 btn-primary">
+                    Register Anyway
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Confirmation Modal -->
+    <div id="confirmation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="modal max-w-md w-full p-6 animate-slide-up">
+            <div class="text-center">
+                <div class="mx-auto w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mb-4">
+                    <svg class="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Registration Successful!</h3>
+                <p class="text-text-secondary mb-6">
+                    You have successfully registered for the Annual Tech Conference 2025. A confirmation email has been sent to your registered email address.
+                </p>
+                <div class="flex space-x-3">
+                    <button id="view-my-events" class="flex-1 btn-secondary">
+                        View My Events
+                    </button>
+                    <button id="close-confirmation" class="flex-1 btn-primary">
+                        Got It
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancellation Confirmation Modal -->
+    <div id="cancellation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="modal max-w-md w-full p-6 animate-slide-up">
+            <div class="flex items-center mb-4">
+                <svg class="w-6 h-6 text-error mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                </svg>
+                <h3 class="text-lg font-semibold text-text-primary">Cancel Registration</h3>
+            </div>
+            <div class="mb-6">
+                <p class="text-text-secondary">
+                    Are you sure you want to cancel your registration for this event? This action cannot be undone.
+                </p>
+            </div>
+            <div class="flex space-x-3">
+                <button id="cancel-cancellation" class="flex-1 px-4 py-2 border border-gray-300 text-text-secondary rounded-lg hover:bg-gray-50 transition-colors duration-fast">
+                    Keep Registration
+                </button>
+                <button id="confirm-cancellation" class="flex-1 px-4 py-2 bg-error text-white rounded-lg hover:bg-error-700 transition-colors duration-fast">
+                    Cancel Registration
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Registration state management
+        let isRegistered = false;
+        let currentRegistrations = 187;
+        const maxCapacity = 250;
+
+        // DOM elements
+        const registerBtn = document.getElementById('register-btn');
+        const cancelRegistrationBtn = document.getElementById('cancel-registration-btn');
+        const notRegisteredSection = document.getElementById('not-registered');
+        const registeredSection = document.getElementById('registered');
+        const registrationStatus = document.getElementById('registration-status');
+        const currentRegistrationsSpan = document.getElementById('current-registrations');
+        const capacityBar = document.getElementById('capacity-bar');
+
+        // Modal elements
+        const clashModal = document.getElementById('clash-modal');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const cancellationModal = document.getElementById('cancellation-modal');
+
+        // Modal buttons
+        const clashCancel = document.getElementById('clash-cancel');
+        const clashProceed = document.getElementById('clash-proceed');
+        const viewMyEvents = document.getElementById('view-my-events');
+        const closeConfirmation = document.getElementById('close-confirmation');
+        const cancelCancellation = document.getElementById('cancel-cancellation');
+        const confirmCancellation = document.getElementById('confirm-cancellation');
+
+        // Check if user is already registered (mock check)
+        function checkRegistrationStatus() {
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            const registeredEvents = JSON.parse(localStorage.getItem('registeredEvents') || '[]');
+            
+            if (user.email && registeredEvents.includes('tech-conference-2025')) {
+                isRegistered = true;
+                updateRegistrationUI();
+            }
+        }
+
+        // Update registration UI
+        function updateRegistrationUI() {
+            if (isRegistered) {
+                notRegisteredSection.classList.add('hidden');
+                registeredSection.classList.remove('hidden');
+                registrationStatus.textContent = 'Registered';
+                registrationStatus.className = 'bg-success text-white px-3 py-1 rounded-full text-sm font-medium';
+            } else {
+                notRegisteredSection.classList.remove('hidden');
+                registeredSection.classList.add('hidden');
+                registrationStatus.textContent = 'Available';
+                registrationStatus.className = 'bg-success text-white px-3 py-1 rounded-full text-sm font-medium';
+            }
+            
+            // Update capacity
+            currentRegistrationsSpan.textContent = currentRegistrations;
+            const percentage = (currentRegistrations / maxCapacity) * 100;
+            capacityBar.style.width = `${percentage}%`;
+            
+            if (percentage >= 90) {
+                capacityBar.className = 'bg-error h-2 rounded-full transition-all duration-normal';
+                registrationStatus.textContent = 'Almost Full';
+                registrationStatus.className = 'bg-warning text-white px-3 py-1 rounded-full text-sm font-medium';
+            } else if (percentage >= 75) {
+                capacityBar.className = 'bg-warning h-2 rounded-full transition-all duration-normal';
+            }
+        }
+
+        // Clash detection simulation
+        function checkForClashes() {
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            const registeredEvents = JSON.parse(localStorage.getItem('registeredEvents') || '[]');
+            
+            // Simulate clash detection - check if user has conflicting events
+            const hasClash = registeredEvents.includes('data-structures-workshop');
+            
+            return hasClash;
+        }
+
+        // Register for event
+        registerBtn.addEventListener('click', () => {
+            // Check for scheduling conflicts
+            if (checkForClashes()) {
+                showModal(clashModal);
+            } else {
+                registerForEvent();
+            }
+        });
+
+        // Handle clash modal actions
+        clashCancel.addEventListener('click', () => {
+            hideModal(clashModal);
+        });
+
+        clashProceed.addEventListener('click', () => {
+            hideModal(clashModal);
+            registerForEvent();
+        });
+
+        // Register for event function
+        function registerForEvent() {
+            // Simulate registration process
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            if (!user.email) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Add to registered events
+            const registeredEvents = JSON.parse(localStorage.getItem('registeredEvents') || '[]');
+            registeredEvents.push('tech-conference-2025');
+            localStorage.setItem('registeredEvents', JSON.stringify(registeredEvents));
+
+            // Update state
+            isRegistered = true;
+            currentRegistrations++;
+            updateRegistrationUI();
+
+            // Show confirmation
+            showModal(confirmationModal);
+        }
+
+        // Cancel registration
+        cancelRegistrationBtn.addEventListener('click', () => {
+            showModal(cancellationModal);
+        });
+
+        // Handle cancellation modal actions
+        cancelCancellation.addEventListener('click', () => {
+            hideModal(cancellationModal);
+        });
+
+        confirmCancellation.addEventListener('click', () => {
+            // Remove from registered events
+            const registeredEvents = JSON.parse(localStorage.getItem('registeredEvents') || '[]');
+            const index = registeredEvents.indexOf('tech-conference-2025');
+            if (index > -1) {
+                registeredEvents.splice(index, 1);
+                localStorage.setItem('registeredEvents', JSON.stringify(registeredEvents));
+            }
+
+            // Update state
+            isRegistered = false;
+            currentRegistrations--;
+            updateRegistrationUI();
+
+            hideModal(cancellationModal);
+        });
+
+        // Handle confirmation modal actions
+        viewMyEvents.addEventListener('click', () => {
+            window.location.href = 'my_events.html';
+        });
+
+        closeConfirmation.addEventListener('click', () => {
+            hideModal(confirmationModal);
+        });
+
+        // Modal utility functions
+        function showModal(modal) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideModal(modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals when clicking outside
+        [clashModal, confirmationModal, cancellationModal].forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal(modal);
+                }
+            });
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                hideModal(clashModal);
+                hideModal(confirmationModal);
+                hideModal(cancellationModal);
+            }
+        });
+
+        // Share functionality
+        document.querySelectorAll('[class*="bg-primary-50"], [class*="bg-secondary-50"], [class*="bg-accent-50"]').forEach(button => {
+            if (button.textContent.includes('Twitter') || button.textContent.includes('Facebook') || button.textContent.includes('Share')) {
+                button.addEventListener('click', () => {
+                    const eventTitle = 'Annual Tech Conference 2025';
+                    const eventUrl = window.location.href;
+                    
+                    if (button.textContent.includes('Twitter')) {
+                        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out this amazing event: ${eventTitle}`)}&url=${encodeURIComponent(eventUrl)}`;
+                        window.open(twitterUrl, '_blank');
+                    } else if (button.textContent.includes('Facebook')) {
+                        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(eventUrl)}`;
+                        window.open(facebookUrl, '_blank');
+                    } else {
+                        // Generic share
+                        if (navigator.share) {
+                            navigator.share({
+                                title: eventTitle,
+                                text: 'Join me at this amazing campus event!',
+                                url: eventUrl
+                            });
+                        } else {
+                            // Fallback - copy to clipboard
+                            navigator.clipboard.writeText(eventUrl).then(() => {
+                                alert('Event link copied to clipboard!');
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            checkRegistrationStatus();
+            updateRegistrationUI();
+            
+            // Add some demo registered events for clash detection
+            const demoEvents = ['data-structures-workshop'];
+            localStorage.setItem('registeredEvents', JSON.stringify(demoEvents));
+        });
+
+        // Simulate real-time updates (optional)
+        setInterval(() => {
+            // Randomly update registration count (for demo purposes)
+            if (Math.random() < 0.1 && currentRegistrations < maxCapacity) {
+                currentRegistrations += Math.floor(Math.random() * 3);
+                if (currentRegistrations > maxCapacity) {
+                    currentRegistrations = maxCapacity;
+                }
+                updateRegistrationUI();
+            }
+        }, 30000); // Update every 30 seconds
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
