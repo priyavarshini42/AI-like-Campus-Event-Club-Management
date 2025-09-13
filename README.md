@@ -1,0 +1,1 @@
+# AI-like-Campus-Event-Club-Management
